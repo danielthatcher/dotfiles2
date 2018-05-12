@@ -1,0 +1,110 @@
+call plug#begin('~/.vim/bundle')
+
+" Plugins
+Plug 'maralla/completor.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'tmhedberg/SimpylFold', {'for':'python'}
+Plug 'vim-scripts/indentpython.vim', {'for':'python'}
+Plug 'lepture/vim-jinja', {'for':'html'}
+Plug 'tpope/vim-fugitive'
+Plug 'Yggdroot/indentLine'
+Plug 'vimwiki/vimwiki'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
+" Color schemes
+Plug 'dikiaap/minimalist'
+
+" Local plugins
+if filereadable(expand("~/.config/nvim/vimplug.local"))
+    source ~/.config/nvim/vimplug.local
+endif
+
+" End vim-plug stuff
+call plug#end()
+
+" Leader
+let mapleader = ","
+nmap <Leader>s :set spell!<CR>
+
+"set termguicolors 
+colorscheme minimalist
+autocmd ColorScheme * hi Comment ctermfg=darkgray ctermbg=NONE cterm=NONE guifg=#444444 guibg=NONE gui=NONE
+
+" Misc stuff
+syntax on
+set tabstop=4 shiftwidth=4 expandtab
+set nu
+set formatoptions-=cro
+set hidden
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+set wrap
+set linebreak
+set nohlsearch
+
+" Window navigation
+nnoremap <C-l> <C-w><C-l>
+nnoremap <C-h> <C-w><C-h>
+nnoremap <C-k> <C-w><C-k>
+nnoremap <C-j> <C-w><C-j>
+nnoremap <C-c> <C-w>c
+
+" Add code folding and remap to space
+set foldmethod=syntax
+set foldlevel=99
+nnoremap <leader>f za
+
+" Indentline configuration
+let g:indentLine_color_term = 239
+let g:indentLine_char = '┆'
+let g:indentLine_enabled = 1
+
+" Settings for completer
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
+
+" Settings for fzf
+nnoremap <leader>e :Files<CR>
+nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>/ :BLines<CR>
+
+" vimwiki
+let g:vimwiki_list = [{'path': '~/.local/vimwiki/'}]
+
+" Settings for lightline
+let g:lightline = {
+\   'colorscheme': 'wombat',
+\   'active': {
+\       'left': [ [ 'fugitive', 'paste' ], [ 'readonly', 'filename', 'modified'] ]
+\   },
+\   'component': {
+\       'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}',
+\   },
+\   'component_visible_condition': {
+\       'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
+\   }
+\ }
+
+" Python settings
+augroup filetype_python
+    autocmd!
+    autocmd FileType python let python_highlight_all=1
+augroup END
+
+" LaTeX settings
+augroup filetype_text
+    autocmd!
+    let g:tex_conceal="a"
+    autocmd FileType tex set breakindent
+    autocmd BufWritePost *.tex call jobstart('pdflatex '.expand('%').' && killall -HUP mupdf')
+    autocmd FileType tex command LP call jobstart('mupdf '.expand('%:r').'.pdf')
+    autocmd FileType tex set synmaxcol=80
+    autocmd FileType tex nnoremap j gj
+    autocmd FileType tex nnoremap k gk
+augroup END
+
+" Load in local vimrc
+if filereadable(expand("~/.vimrc.local"))
+    source ~/.vimrc.local
+endif

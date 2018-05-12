@@ -1,0 +1,6 @@
+#! /usr/bin/env bash
+
+if grep -q 'NAME="Debain' /etc/*-release; then
+    updates=$(($(apt list --upgradable | wc -l) - 1))
+    echo "$updates"
+fi

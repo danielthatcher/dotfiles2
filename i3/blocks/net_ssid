@@ -1,0 +1,17 @@
+#! /bin/bash
+
+# Network
+dev="wlan0"
+SSID="$(/sbin/iw dev $dev link | grep SSID | sed -e s/^.*SSID:\ //g)"
+if [[ -z "$SSID" ]]; then
+    SSID="dis"
+fi
+
+# Bluetooth
+if bluetooth | grep -q on; then
+    bstatus="on"
+else
+    bstatus="off"
+fi
+
+echo "  $SSID    $bstatus"
