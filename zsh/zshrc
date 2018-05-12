@@ -33,6 +33,9 @@ export PATH="$PATH::/opt"
 # go path
 export GOPATH="$HOME/Sources/go"
 export PATH="$PATH:$GOPATH"
+if [ ! -d $GOPATH ]; then
+    mkdir -p $GOPATH
+fi
 
 # power
 alias bork='systemctl poweroff'
