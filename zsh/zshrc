@@ -32,7 +32,7 @@ export PATH="$PATH::/opt"
 
 # go path
 export GOPATH="$HOME/Sources/go"
-export PATH="$PATH:$GOPATH"
+export PATH="$PATH:$GOPATH/bin"
 if [ ! -d $GOPATH ]; then
     mkdir -p $GOPATH
 fi
