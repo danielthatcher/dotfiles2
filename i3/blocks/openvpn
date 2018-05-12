@@ -1,6 +1,13 @@
 #! /usr/bin/env bash
 
-service_name="openvpn-client@mullvad-gb.service"
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source $DIR/../local.conf
+
+service_name=$OPENVPN_SERVICE
+if [ -z $OPENVPN_SERVICE ]; then
+    exit 0
+fi
+
 running_str="$(ip r | grep -E '0\.0\.0\.0/1 via [0-9\.]+ dev tun0')"
 
 if [ -z $running_str ]; then

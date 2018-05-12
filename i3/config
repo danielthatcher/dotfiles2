@@ -24,9 +24,6 @@ font pango:monospace 8
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal
-bindsym $mod+Return exec rxvt-unicode
-
 # kill focused window
 bindsym $mod+Shift+q kill
 
@@ -189,5 +186,6 @@ bindsym $mod+Shift+i move scratchpad
 bindsym $mod+i scratchpad show
 
 #Shortcuts
-bindsym $shr+h exec google-chrome-stable 
-bindsym $shr+k exec spotify
+bindsym $shr+h exec ~/.i3/launch.sh browser
+bindsym $shr+k exec ~/.i3/launch.sh music
+bindsym $mod+Return exec ~/.i3/launch.sh terminal

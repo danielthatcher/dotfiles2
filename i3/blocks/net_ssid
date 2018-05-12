@@ -1,9 +1,18 @@
 #! /bin/bash
 
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source $DIR/../local.conf
+
 # Network
-dev="wlan0"
+if [ -z $NET_DEVICE_WIRELESS ]; then
+    exit 0
+else
+    dev=$NET_DEVICE_WIRELESS
+fi
+
 SSID="$(/sbin/iw dev $dev link | grep SSID | sed -e s/^.*SSID:\ //g)"
 if [[ -z "$SSID" ]]; then
+    # Check if IP, and if so assume wired
     SSID="dis"
 fi
 

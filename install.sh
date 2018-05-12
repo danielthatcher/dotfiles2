@@ -9,8 +9,10 @@ ln -s $DIR/tmux/tmux.conf $HOME/.tmux.conf
 ln -s $DIR/zsh/zshrc $HOME/.zshrc
 
 mkdir $HOME/.i3
+[ -f $HOME/.i3/local.conf ] || cp $DIR/i3/local.conf $HOME/.i3
 ln -s $DIR/i3/config $HOME/.i3/config
 ln -s $DIR/i3/lock.sh $HOME/.i3/lock.sh
+ln -s $DIR/i3/launch.sh $HOME/.i3/launch.sh
 chmod +x $HOME/.i3/lock.sh
 [ -f $HOME/.i3/i3blocks.conf ] || cp $DIR/i3/i3blocks.conf $HOME/.i3/i3blocks.conf
 mkdir $HOME/.i3/blocks

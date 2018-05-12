@@ -2,5 +2,12 @@
 
 if grep -q 'NAME="Debain' /etc/*-release; then
     updates=$(($(apt list --upgradable | wc -l) - 1))
-    echo "$updates"
+elif grep -q 'NAME="Arch Linux"' /etc/*-release; then
+    if [ $(which checkupdates) ]; then
+        updates=$(checkupdates | wc -l)
+    else
+        updates="Please install checkupdates"
+    fi
 fi
+
+echo "$updates"
