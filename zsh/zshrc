@@ -38,7 +38,7 @@ if [ ! -d $GOPATH ]; then
 fi
 
 # npm path
-export PATH="$PATH:$HOME/.local/npm/bin"
+export PATH="$PATH:$HOME/.local/npm-global/bin"
 
 # power
 alias bork='systemctl poweroff'
