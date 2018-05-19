@@ -53,6 +53,8 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 set wrap
 set linebreak
 set nohlsearch
+set ignorecase
+set smartcase
 
 " Window navigation
 nnoremap <C-l> <C-w><C-l>
