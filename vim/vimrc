@@ -11,6 +11,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'vimwiki/vimwiki'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
 Plug 'SirVer/ultisnips'
 
 Plug 'artur-shaik/vim-javacomplete2', {'for':'java'}
@@ -103,6 +104,9 @@ let g:lightline = {
 " Settings for UltiSnips
 let g:UltiSnipsSnippetDirectories = ['~/.config/nvim/UltiSnips', 'UltiSnips']
 let g:UltiSnipsExpandTrigger="<c-space>"
+
+" Go settings
+let g:go_fmt_command = "goimports"
 
 " Python settings
 augroup filetype_python
