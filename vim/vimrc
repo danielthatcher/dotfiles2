@@ -11,6 +11,8 @@ Plug 'Yggdroot/indentLine'
 Plug 'vimwiki/vimwiki'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'SirVer/ultisnips'
+
 Plug 'artur-shaik/vim-javacomplete2', {'for':'java'}
 if has('nvim')
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins', 'for':'java' }
@@ -40,6 +42,7 @@ colorscheme minimalist
 autocmd ColorScheme * hi Comment ctermfg=darkgray ctermbg=NONE cterm=NONE guifg=#444444 guibg=NONE gui=NONE
 
 " Misc stuff
+filetype plugin indent on
 syntax on
 set tabstop=4 shiftwidth=4 expandtab
 set nu
@@ -96,6 +99,10 @@ let g:lightline = {
             \       'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
             \   }
             \ }
+
+" Settings for UltiSnips
+let g:UltiSnipsSnippetDirectories = ['~/.config/nvim/UltiSnips', 'UltiSnips']
+let g:UltiSnipsExpandTrigger="<c-space>"
 
 " Python settings
 augroup filetype_python
