@@ -11,6 +11,14 @@ Plug 'Yggdroot/indentLine'
 Plug 'vimwiki/vimwiki'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'artur-shaik/vim-javacomplete2', {'for':'java'}
+if has('nvim')
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins', 'for':'java' }
+else
+    Plug 'Shougo/deoplete.nvim'
+    Plug 'roxma/nvim-yarp'
+    Plug 'roxma/vim-hug-neovim-rpc'
+endif
 
 " Color schemes
 Plug 'dikiaap/minimalist'
@@ -64,6 +72,9 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
 
+" Settings for deoplete
+let g:deoplete#enable_at_startup = 0
+
 " Settings for fzf
 nnoremap <leader>e :Files<CR>
 nnoremap <leader>b :Buffers<CR>
@@ -74,17 +85,17 @@ let g:vimwiki_list = [{'path': '~/.local/vimwiki/'}]
 
 " Settings for lightline
 let g:lightline = {
-\   'colorscheme': 'wombat',
-\   'active': {
-\       'left': [ [ 'fugitive', 'paste' ], [ 'readonly', 'filename', 'modified'] ]
-\   },
-\   'component': {
-\       'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}',
-\   },
-\   'component_visible_condition': {
-\       'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
-\   }
-\ }
+            \   'colorscheme': 'wombat',
+            \   'active': {
+            \       'left': [ [ 'fugitive', 'paste' ], [ 'readonly', 'filename', 'modified'] ]
+            \   },
+            \   'component': {
+            \       'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}',
+            \   },
+            \   'component_visible_condition': {
+            \       'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
+            \   }
+            \ }
 
 " Python settings
 augroup filetype_python
@@ -102,6 +113,18 @@ augroup filetype_text
     autocmd FileType tex set synmaxcol=80
     autocmd FileType tex nnoremap j gj
     autocmd FileType tex nnoremap k gk
+augroup END
+
+" Java settings
+augroup filetype_java
+    autocmd!
+    autocmd FileType java setlocal omnifunc=javacomplete#Complete
+    autocmd FileType java call deoplete#enable()
+    autocmd FileType java let g:deoplete#enable_at_startup = 1
+    autocmd FileType java let g:deoplete#auto_completion_start_length = 2
+    autocmd FileType java let g:deoplete#sources = {}
+    autocmd FileType java let g:deoplete#sources._ = []
+    autocmd FileType java let g:deoplete#file#enable_buffer_path = 1
 augroup END
 
 " Load in local vimrc
