@@ -111,7 +111,7 @@ let g:UltiSnipsExpandTrigger="<c-space>"
 augroup filetype_go
     let g:go_fmt_command = "goimports"
     nmap <C-]> :GoDef<CR>
-    nmap <C-[> :GoDoc<CR>
+    nmap <leader>d :GoDoc<CR>
 augroup END
 
 " Python settings
