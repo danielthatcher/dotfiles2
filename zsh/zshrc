@@ -55,6 +55,7 @@ alias -s {jar}='java -jar'
 
 # misc
 alias lsa='ls -A'
+test "${PS1+set}" && CDPATH=".:$HOME/Sources/go/src/github.com/danielthatcher:$HOME/Projects"
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
