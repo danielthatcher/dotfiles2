@@ -15,6 +15,7 @@ Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
 Plug 'SirVer/ultisnips'
 
 Plug 'artur-shaik/vim-javacomplete2', {'for':'java'}
+Plug 'rustushki/JavaImp.vim', {'for':'java'}
 if has('nvim')
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins', 'for':'java' }
 else
