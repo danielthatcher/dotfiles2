@@ -47,6 +47,7 @@ filetype plugin indent on
 syntax on
 set tabstop=4 shiftwidth=4 expandtab
 set nu
+set relativenumber
 set formatoptions-=cro
 set hidden
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
@@ -112,6 +113,7 @@ augroup filetype_go
     let g:go_fmt_command = "goimports"
     autocmd FileType go nmap <C-]> :GoDef<CR>
     autocmd FileType go nmap <leader>d :GoDoc<CR>
+    autocmd FileType go nmap <leader>m :GoBuild<CR>
 augroup END
 
 " Python settings
