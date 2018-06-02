@@ -83,6 +83,10 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
 " Settings for deoplete
 let g:deoplete#enable_at_startup = 0
 
+" Settings for ALE
+let g:ale_completion_enabled = 0
+let g:ale_lint_on_text_changed = 'never'
+
 " Settings for fzf
 nnoremap <leader>e :Files<CR>
 nnoremap <leader>b :Buffers<CR>
