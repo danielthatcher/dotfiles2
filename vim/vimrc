@@ -1,7 +1,9 @@
 call plug#begin('~/.vim/bundle')
 
 " Plugins
-Plug 'maralla/completor.vim'
+if (has("python") || has("python3")) && has("job") && has("timers") && has("lambda")
+    Plug 'maralla/completor.vim'
+endif
 Plug 'itchyny/lightline.vim'
 Plug 'tmhedberg/SimpylFold', {'for':'python'}
 Plug 'vim-scripts/indentpython.vim', {'for':'python'}
@@ -58,6 +60,7 @@ set linebreak
 set nohlsearch
 set ignorecase
 set smartcase
+set conceallevel=0
 
 " Window navigation
 nnoremap <C-l> <C-w><C-l>
