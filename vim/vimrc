@@ -1,7 +1,7 @@
 call plug#begin('~/.vim/bundle')
 
 " Plugins
-if (has("python") || has("python3")) && has("job") && has("timers") && has("lambda")
+if (has("python") || has("python3")) && has("timers") && has("lambda")
     Plug 'maralla/completor.vim'
 endif
 Plug 'itchyny/lightline.vim'
