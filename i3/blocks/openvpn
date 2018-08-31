@@ -17,6 +17,7 @@ else
     if [ -z "$ready_str" ]; then
         echo "  initializing..."
     else
+        #echo "  vpn on"
         echo "  vpn on"
     fi
 fi
