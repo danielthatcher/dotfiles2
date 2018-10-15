@@ -179,8 +179,8 @@ bindsym XF86AudioNext exec playerctl next && pkill -RTMIN+$sig_mediaplayer i3blo
 bindsym XF86AudioPrev exec playerctl previous && pkill -RTMIN+$sig_mediaplayer i3blocks
 
 #Backlight
-bindsym XF86MonBrightnessUp exec lux -a 10
-bindsym XF86MonBrightnessDown exec lux -s 10
+bindsym XF86MonBrightnessUp exec lux -a 50
+bindsym XF86MonBrightnessDown exec lux -s 50
 
 #Scratchpad
 bindsym $mod+Shift+i move scratchpad
