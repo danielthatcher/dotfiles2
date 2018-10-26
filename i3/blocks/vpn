@@ -4,10 +4,25 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source $DIR/../local.conf
 
 service_name=$OPENVPN_SERVICE
+# Check for wireguard usage
 if [ -z $OPENVPN_SERVICE ]; then
+    wg_regex=$WIREGUARD_INTERFACE_REGEX
+    if [ -z $WIREGUARD_INTERFACE_REGEX ]; then
+        exit 0
+    fi
+
+    # Process wireguard usage
+    interfaces=$(ip l | awk '/^[0-9]+:/{ gsub(":", "", $2); print $2 }')
+    conn=$(echo $interfaces | sed 's/ /\n/g' | grep -Em 1 $WIREGUARD_INTERFACE_REGEX)
+    if [ -z $conn ]; then
+        echo "  vpn off"
+    else
+        echo "  $conn"
+    fi
     exit 0
 fi
 
+# Process for openvpn service usage
 running_str="$(ip r | grep -E '0\.0\.0\.0/1 via [0-9\.]+ dev tun0')"
 
 if [ -z $running_str ]; then
