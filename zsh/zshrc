@@ -58,6 +58,7 @@ alias lsa='ls -A'
 test "${PS1+set}" && CDPATH=".:$HOME/Sources/go/src/github.com/danielthatcher:$HOME/Projects"
 alias e='vim'
 alias t='tmux'
+alias snapshot='sudo btrfs subvolume snapshot / /btrfs/backups/$(date +%F-%H)'
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
