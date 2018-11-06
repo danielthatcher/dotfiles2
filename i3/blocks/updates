@@ -5,6 +5,9 @@ if grep -q 'NAME="Debain' /etc/*-release; then
 elif grep -q 'NAME="Arch Linux"' /etc/*-release; then
     if [ $(which checkupdates) ]; then
         updates=$(checkupdates | wc -l)
+        if [[ $updates -eq 0 ]]; then
+            exit 0
+        fi
     else
         updates="Please install checkupdates"
     fi
