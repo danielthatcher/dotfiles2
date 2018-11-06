@@ -20,3 +20,7 @@ mkdir $HOME/.i3/blocks
 for f in $(ls $DIR/i3/blocks); do
     ln -s $DIR/i3/blocks/$f $HOME/.i3/blocks/$f
 done
+
+# Vim plug install
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+vim -c ':PlugInstall'
