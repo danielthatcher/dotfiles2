@@ -158,7 +158,8 @@ bar {
 
 #Borders for new windows. Hide all
 hide_edge_borders both
-new_window pixel 0
+new_window pixel 1
+client.focused #00B0DD #00B0DD #000088 #00B0DD
 
 #i3-gaps gaps
 gaps inner 4
