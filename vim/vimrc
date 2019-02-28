@@ -155,6 +155,23 @@ augroup filetype_java
     autocmd FileType java let g:deoplete#file#enable_buffer_path = 1
 augroup END
 
+" C++ settings
+function AlternateFile()
+    let ext = expand('%:e')
+    if ext == 'h'
+        e %<.cpp
+    else
+        e %<.h
+    endif
+endfunction
+
+augroup filetype_cpp
+    autocmd!
+    autocmd FileType cpp let b:ale_linters = ['gcc']
+    autocmd Filetype cpp nmap <Leader>m :make<CR>
+    autocmd Filetype cpp nmap <Leader>s :silent call AlternateFile()<CR>
+augroup END
+
 " Load in local vimrc
 if filereadable(expand("~/.vimrc.local"))
     source ~/.vimrc.local
