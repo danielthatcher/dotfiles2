@@ -155,6 +155,12 @@ augroup filetype_java
     autocmd FileType java let g:deoplete#file#enable_buffer_path = 1
 augroup END
 
+" C++ settings
+augroup filetype_cpp
+    autocmd!
+    autocmd FileType cpp nmap <leader>m :make<CR>
+augroup END
+
 " Load in local vimrc
 if filereadable(expand("~/.vimrc.local"))
     source ~/.vimrc.local
