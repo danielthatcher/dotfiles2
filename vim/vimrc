@@ -7,7 +7,6 @@ endif
 Plug 'itchyny/lightline.vim'
 Plug 'tmhedberg/SimpylFold', {'for':'python'}
 Plug 'vim-scripts/indentpython.vim', {'for':'python'}
-Plug 'lepture/vim-jinja', {'for':'html'}
 Plug 'tpope/vim-fugitive'
 Plug 'Yggdroot/indentLine'
 Plug 'vimwiki/vimwiki'
@@ -85,7 +84,7 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
 
 " Settings for deoplete
-let g:deoplete#enable_at_startup = 0
+let g:deoplete#enable_at_startup = 1
 
 " Settings for ALE
 let g:ale_completion_enabled = 0
