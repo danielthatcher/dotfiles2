@@ -25,6 +25,9 @@ autoload -U colors
 colors
 PROMPT="%{$fg[cyan]%}%n%{$fg[white]%}:%{$fg[yellow]%}%~ %(!.#.$)%{$reset_color%} "
 
+# Vim keybindings
+bindkey -v
+
 # modify the path
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$PATH:/sbin"
