@@ -25,6 +25,11 @@ autoload -U colors
 colors
 PROMPT="%{$fg[cyan]%}%n%{$fg[white]%}:%{$fg[yellow]%}%~ %(!.#.$)%{$reset_color%} "
 
+# Load up editor when hitting ^x^x
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '^x^x' edit-command-line
+
 # modify the path
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$PATH:/sbin"
