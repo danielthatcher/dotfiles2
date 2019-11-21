@@ -8,6 +8,8 @@ ln -s $DIR/vim/UltiSnips $HOME/.config/nvim/UltiSnips
 ln -s $DIR/vim/vimrc $HOME/.config/nvim/init.vim
 ln -s $DIR/tmux/tmux.conf $HOME/.tmux.conf
 ln -s $DIR/zsh/zshrc $HOME/.zshrc
+mkdir -p $HOME/.config/polybar
+ln -s $DIR/polybar/config $HOME/.config/polybar/config
 
 mkdir $HOME/.i3
 [ -f $HOME/.i3/local.conf ] || cp $DIR/i3/local.conf $HOME/.i3
