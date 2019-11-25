@@ -30,6 +30,9 @@ bindsym $mod+Shift+q kill
 # start rofi
 bindsym $mod+d exec rofi -mode drun -show drun
 
+# Projects with rofi
+bindsym $mod+p exec $HOME/.config/rofi/launchers/projects.sh
+
 # change focus - had to change to vim
 bindsym $mod+h focus left
 bindsym $mod+j focus down

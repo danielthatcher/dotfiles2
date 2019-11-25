@@ -23,6 +23,9 @@ for f in $(ls $DIR/i3/blocks); do
     ln -s $DIR/i3/blocks/$f $HOME/.i3/blocks/$f
 done
 ln -s $DIR/polybar/polybar-launch.sh $HOME/.i3/polybar-launch.sh
+mkdir -p $HOME/.config/rofi/
+mkdir -p $HOME/.config/projects
+ln -s $DIR/rofi/launchers $HOME/.config/rofi/launchers
 
 # Vim plug install
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
