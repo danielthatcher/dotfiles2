@@ -18,13 +18,13 @@ Plug 'w0rp/ale'
 
 Plug 'artur-shaik/vim-javacomplete2', {'for':'java'}
 Plug 'rustushki/JavaImp.vim', {'for':'java'}
-if has('nvim')
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins', 'for':'java' }
-else
-    Plug 'Shougo/deoplete.nvim'
-    Plug 'roxma/nvim-yarp'
-    Plug 'roxma/vim-hug-neovim-rpc'
-endif
+"if has('nvim')
+"    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins', 'for':'java' }
+"else
+"    Plug 'Shougo/deoplete.nvim'
+"    Plug 'roxma/nvim-yarp'
+"    Plug 'roxma/vim-hug-neovim-rpc'
+"endif
 
 " Color schemes
 Plug 'dikiaap/minimalist'
@@ -84,7 +84,7 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
 
 " Settings for deoplete
-let g:deoplete#enable_at_startup = 1
+"let g:deoplete#enable_at_startup = 1
 
 " Settings for ALE
 let g:ale_completion_enabled = 0
@@ -170,6 +170,11 @@ augroup filetype_cpp
     autocmd Filetype cpp nmap <Leader>m :make<CR>
     autocmd Filetype cpp nmap <Leader>s :silent call AlternateFile()<CR>
 augroup END
+
+" Completor settings
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 
 " Load in local vimrc
 if filereadable(expand("~/.vimrc.local"))
