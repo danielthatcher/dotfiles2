@@ -1,9 +1,6 @@
 call plug#begin('~/.vim/bundle')
 
 " Plugins
-if (has("python") || has("python3")) && has("timers") && has("lambda")
-    Plug 'maralla/completor.vim'
-endif
 Plug 'itchyny/lightline.vim'
 Plug 'tmhedberg/SimpylFold', {'for':'python'}
 Plug 'vim-scripts/indentpython.vim', {'for':'python'}
@@ -14,7 +11,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
 Plug 'SirVer/ultisnips'
-Plug 'w0rp/ale'
 
 " Color schemes
 Plug 'dikiaap/minimalist'
@@ -67,15 +63,6 @@ nnoremap <leader>f za
 let g:indentLine_color_term = 239
 let g:indentLine_char = '┆'
 let g:indentLine_enabled = 1
-
-" Settings for completer
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
-
-" Settings for ALE
-let g:ale_completion_enabled = 0
-let g:ale_lint_on_text_changed = 'never'
 
 " Settings for fzf
 nnoremap <leader>e :Files<CR>
@@ -145,11 +132,6 @@ augroup filetype_cpp
     autocmd Filetype cpp nmap <Leader>m :make<CR>
     autocmd Filetype cpp nmap <Leader>s :silent call AlternateFile()<CR>
 augroup END
-
-" Completor settings
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 
 " Load in local vimrc
 if filereadable(expand("~/.vimrc.local"))
