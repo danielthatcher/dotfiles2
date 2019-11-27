@@ -16,16 +16,6 @@ Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
 Plug 'SirVer/ultisnips'
 Plug 'w0rp/ale'
 
-Plug 'artur-shaik/vim-javacomplete2', {'for':'java'}
-Plug 'rustushki/JavaImp.vim', {'for':'java'}
-"if has('nvim')
-"    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins', 'for':'java' }
-"else
-"    Plug 'Shougo/deoplete.nvim'
-"    Plug 'roxma/nvim-yarp'
-"    Plug 'roxma/vim-hug-neovim-rpc'
-"endif
-
 " Color schemes
 Plug 'dikiaap/minimalist'
 
@@ -83,9 +73,6 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
 
-" Settings for deoplete
-"let g:deoplete#enable_at_startup = 1
-
 " Settings for ALE
 let g:ale_completion_enabled = 0
 let g:ale_lint_on_text_changed = 'never'
@@ -140,18 +127,6 @@ augroup filetype_text
     autocmd FileType tex set synmaxcol=80
     autocmd FileType tex nnoremap j gj
     autocmd FileType tex nnoremap k gk
-augroup END
-
-" Java settings
-augroup filetype_java
-    autocmd!
-    autocmd FileType java setlocal omnifunc=javacomplete#Complete
-    autocmd FileType java call deoplete#enable()
-    autocmd FileType java let g:deoplete#enable_at_startup = 1
-    autocmd FileType java let g:deoplete#auto_completion_start_length = 2
-    autocmd FileType java let g:deoplete#sources = {}
-    autocmd FileType java let g:deoplete#sources._ = []
-    autocmd FileType java let g:deoplete#file#enable_buffer_path = 1
 augroup END
 
 " C++ settings
