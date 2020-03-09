@@ -64,7 +64,7 @@ alias -s {jar}='java -jar'
 # Docker ctf container
 alias dctf-start='docker run --rm -d -v $PWD:/pwd --cap-add=SYS_PTRACE --security-opt seccomp=unconfined --name ctf -i ctf'
 alias dctf='docker exec -it ctf /bin/zsh'
-alias jupyter-docker='docker run --rm -v $PWD:/home/jovyan/work --name jupyter -i -p 8888:8888 jupyter/scipy-notebook'
+alias djupyter='docker run --rm -v $PWD:/home/jovyan/work --name jupyter -i -p 8888:8888 jupyter/scipy-notebook'
 
 # misc
 alias lsa='ls -A'
