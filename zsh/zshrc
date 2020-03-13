@@ -65,7 +65,7 @@ alias -s {jar}='java -jar'
 alias dctf-start='docker run --rm -d -v $PWD:/pwd --cap-add=SYS_PTRACE --security-opt seccomp=unconfined --name ctf -i ctf'
 alias dctf='docker exec -it ctf /bin/zsh'
 alias djupyter='docker run --rm -v $PWD:/home/jovyan/work --name jupyter -i -p 8888:8888 jupyter/scipy-notebook'
-alias djupytertf='docker run --rm -v $PWD:/home/jovyan/work --name jupyter -i -p 8888:8888 --gpus all jupyter/tensorflow-notebook'
+alias djupytertf='docker run --rm -v $PWD:/home/jovyan/work --name jupyter -i -p 8888:8888 -p 6006:6006 --gpus all jupyter/tensorflow-notebook'
 
 # misc
 alias lsa='ls -A'
