@@ -45,6 +45,8 @@ set nohlsearch
 set ignorecase
 set smartcase
 set conceallevel=0
+set lazyredraw
+set smarttab
 
 " Window navigation
 nnoremap <C-l> <C-w><C-l>
@@ -62,6 +64,16 @@ nnoremap <leader>f za
 let g:indentLine_color_term = 239
 let g:indentLine_char = '┆'
 let g:indentLine_enabled = 1
+
+" Wrapping with current indentation and then a little more
+set breakindent
+set breakindentopt=shift:2
+
+" Indent to multiples of the shiftwidth with < and >
+set shiftround
+
+" Keep 3 lines visible at top and bottom of screen
+set scrolloff=3
 
 " Settings for fzf
 nnoremap <leader>e :Files<CR>

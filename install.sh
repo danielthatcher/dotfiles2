@@ -30,3 +30,6 @@ ln -s $DIR/rofi/launchers $HOME/.config/rofi/launchers
 # Vim plug install
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 vim -c ':PlugInstall'
+
+# Vim coc settings
+ln -s $DIR/vim/coc-settings.json $HOME/.config/nvim/coc-settings.json
