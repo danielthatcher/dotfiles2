@@ -14,7 +14,7 @@ Plug 'SirVer/ultisnips'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Color schemes
-Plug 'yorickpeterse/happy_hacking.vim'
+Plug 'git@gitlab.com:yorickpeterse/happy_hacking.vim.git'
 
 " Local plugins
 if filereadable(expand("~/.config/nvim/vimplug.local"))
