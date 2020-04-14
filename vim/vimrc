@@ -14,7 +14,7 @@ Plug 'SirVer/ultisnips'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Color schemes
-Plug 'dikiaap/minimalist'
+Plug 'yorickpeterse/happy_hacking.vim'
 
 " Local plugins
 if filereadable(expand("~/.config/nvim/vimplug.local"))
@@ -28,9 +28,7 @@ call plug#end()
 let mapleader = ","
 nmap <Leader>s :set spell!<CR>
 
-"set termguicolors 
-colorscheme minimalist
-autocmd ColorScheme * hi Comment ctermfg=darkgray ctermbg=NONE cterm=NONE guifg=#444444 guibg=NONE gui=NONE
+colorscheme happy_hacking
 
 " Misc stuff
 filetype plugin indent on
