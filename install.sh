@@ -33,3 +33,8 @@ vim -c ':PlugInstall'
 
 # Vim coc settings
 ln -s $DIR/vim/coc-settings.json $HOME/.config/nvim/coc-settings.json
+
+# zsh plugins
+ZSH_PLUGIN_DIR=$HOME/.config/zsh/plugins
+mkdir -p $ZSH_PLUGIN_DIR
+git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_PLUGIN_DIR/zsh-autosuggestions

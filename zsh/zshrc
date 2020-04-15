@@ -94,3 +94,11 @@ alias snapshot='sudo btrfs subvolume snapshot / /btrfs/backups/$(date +%F-%H)'
 
 # Local
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
+# Plugins
+ZSH_PLUGIN_DIR="$HOME/.config/zsh/plugins"
+
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=2"
+[ -f $ZSH_PLUGIN_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source $ZSH_PLUGIN_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh
+bindkey '^ ' autosuggest-accept
