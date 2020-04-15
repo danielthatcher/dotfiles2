@@ -145,7 +145,7 @@ exec_always --no-startup-id $HOME/.i3/polybar-launch.sh
 #Borders for new windows. Hide all
 hide_edge_borders both
 new_window pixel 1
-client.focused #00B0DD #00B0DD #000088 #00B0DD
+client.focused #F05E48 #F05E48 #000088 #F05E49
 
 #i3-gaps gaps
 gaps inner 4
