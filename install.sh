@@ -4,7 +4,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 ln -s $DIR/vim/vimrc $HOME/.vimrc
 mkdir -p $HOME/.config/nvim
-ln -s $DIR/vim/UltiSnips $HOME/.config/nvim/UltiSnips
+ln -s $DIR/vim/UltiSnips $HOME/.config/nvim/
 ln -s $DIR/vim/vimrc $HOME/.config/nvim/init.vim
 ln -s $DIR/tmux/tmux.conf $HOME/.tmux.conf
 ln -s $DIR/zsh/zshrc $HOME/.zshrc
