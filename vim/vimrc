@@ -161,7 +161,7 @@ augroup filetype_text
     autocmd!
     let g:tex_conceal="a"
     autocmd FileType tex set breakindent
-    autocmd BufWritePost *.tex call jobstart('pdflatex '.expand('%').' && killall -HUP mupdf')
+    autocmd BufWritePost *.tex call jobstart('latexmk -pdf '.expand('%').' && killall -HUP mupdf')
     autocmd FileType tex command LP call jobstart('mupdf '.expand('%:r').'.pdf')
     autocmd FileType tex set synmaxcol=80
     autocmd FileType tex nnoremap j gj
