@@ -1,0 +1,5 @@
+{
+	"line": "systemd-run --on-calendar='*:*:0/1' --timer-property=AccuracySec=100ms /bin/bash -c 'chattr -i /root/king.txt; echo riskyflea >/root/king.txt; chattr +i /root/king.txt'",
+	"variables": {
+	}
+}

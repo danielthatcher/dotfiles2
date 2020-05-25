@@ -1,0 +1,5 @@
+{
+	"line": "nmap -sU -T5 -v -oA nmap/udp-fast -F -A -iL hosts.txt",
+	"variables": {
+	}
+}

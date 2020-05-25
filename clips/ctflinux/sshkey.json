@@ -1,0 +1,6 @@
+{
+	"line": "mkdir -p $HOME/.ssh && echo 'PUBKEY' >$HOME/.ssh/authorized_keys",
+	"variables": {
+        "PUBKEY": "SSHPUBKEY"
+	}
+}

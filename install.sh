@@ -39,3 +39,7 @@ ln -s $DIR/vim/coc-settings.json $HOME/.config/nvim/coc-settings.json
 ZSH_PLUGIN_DIR=$HOME/.config/zsh/plugins
 mkdir -p $ZSH_PLUGIN_DIR
 git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_PLUGIN_DIR/zsh-autosuggestions
+
+# clips
+mkdir -p ~/.config/clips
+for d in $(ls $DIR/clips); do ln -s "$DIR/clips/$d" "$HOME/.config/clips/$d"; done

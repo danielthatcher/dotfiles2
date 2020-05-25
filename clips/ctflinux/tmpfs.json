@@ -1,0 +1,5 @@
+{
+	"line": "[ -f /root/flag.txt ] && { FLAG=$(cat /root/flag.txt); FNAME=flag.txt } || { FLAG=$(cat /root/root.txt); FNAME=root.txt }; mount -t tmpfs -o size=10m tmpfs /root && echo riskyflea>/root/king.txt && echo $FLAG >/root/$FNAME",
+	"variables": {
+	}
+}

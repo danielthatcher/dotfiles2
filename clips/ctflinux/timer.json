@@ -1,0 +1,6 @@
+{
+	"line": "systemd-run --on-calendar='*:*:0/1' --timer-property=AccuracySec=100ms /bin/bash -c 'COMMAND'",
+	"variables": {
+        "COMMAND": "COMMAND"
+	}
+}

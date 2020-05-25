@@ -1,0 +1,5 @@
+{
+	"line": "nmap -sT -T5 -v -oA nmap/tcp-full -p- -A -iL hosts.txt",
+	"variables": {
+	}
+}

