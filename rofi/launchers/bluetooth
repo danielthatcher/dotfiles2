@@ -1,0 +1,15 @@
+#! /bin/bash
+
+declare -A MACS=(["MX3"]="FC:58:FA:A9:10:AB" ["UE Boom 2"]="C0:28:8D:8E:AC:19" ["Off"]="")
+DEVICE="$(printf '%s\n' "${!MACS[@]}" | rofi -dmenu)"
+MAC="${MACS[$DEVICE]}"
+
+if [ -z $MAC ]; then
+    sudo bluetoothctl power off &
+    sudo systemctl stop bluetooth
+    exit 0
+fi
+
+sudo systemctl start bluetooth
+sudo bluetoothctl power on
+sudo bluetoothctl connect $MAC

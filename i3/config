@@ -30,7 +30,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec rofi -mode drun -show drun
 
 # Projects with rofi
-bindsym $mod+p exec $HOME/.config/rofi/launchers/projects.sh
+bindsym $mod+p exec /bin/bash -c 'ls $HOME/.config/rofi/launchers/ | rofi -dmenu | xargs -I{} /bin/bash $HOME/.config/rofi/launchers/{}'
 bindsym $mod+o exec /home/daniel/Sources/go/bin/clips -q -c $(/home/daniel/Sources/go/bin/clips list | rofi -dmenu)
 
 # change focus - had to change to vim

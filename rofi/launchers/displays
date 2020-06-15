@@ -1,0 +1,32 @@
+#! /bin/bash
+
+MAIN="eDP-1-1"
+EXTERNAL="DP-1-3"
+
+OPTS=("auto" "extend: right" "extend: left" "mirror" "monitor: primary" "monitor: secondary" "external off")
+case "$( printf '%s\n' "${OPTS[@]}" | rofi -dmenu )" in
+    "auto")
+        xrandr --auto
+        ;;
+    "extend: right")
+        xrandr --output $EXTERNAL --right-of $MAIN
+        ;;
+    "extend: left")
+        xrandr --output $EXTERNAL --left-of $MAIN
+        ;;
+    "mirror")
+        xrandr --output $EXTERNAL --same-as $MAIN
+        ;;
+    "monitor: primary")
+        xrandr --newmode "2560x1440_30.00"  146.25  2560 2680 2944 3328  1440 1443 1448 1468 -hsync +vsync
+        xrandr --addmode DP-1-3 "2560x1440_30.00"
+        xrandr --output eDP-1-1 --mode 1920x1080 --output $EXTERNAL --mode "2560x1440_30.00" --right-of $MAIN --primary
+        ;;
+    "monitor: secondary")
+        xrandr --newmode "2560x1440_30.00"  146.25  2560 2680 2944 3328  1440 1443 1448 1468 -hsync +vsync
+        xrandr --addmode $EXTERNAL "2560x1440_30.00"
+        xrandr --output eDP-1-1 --mode 1920x1080 --primary --output $EXTERNAL --mode "2560x1440_30.00" --right-of $MAIN
+        ;;
+    "external off")
+        xrandr --output $EXTERNAL --off
+esac

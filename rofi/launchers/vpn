@@ -1,0 +1,14 @@
+#! /bin/bash
+
+PROFILES="$(ls /etc/wireguard | sed -e 's/\.conf$//')"
+NEW=$( ( echo "$PROFILES"; echo "off" ) | rofi -dmenu)
+
+[ -z $NEW ] && exit 1
+
+CURRENT="$(ip l | awk -F': ' '/^[0-9]*: mullvad/ { print $2 }')"
+echo $CURRENT
+for interface in ${CURRENT[@]}; do
+    sudo wg-quick down $interface
+done
+
+[ $NEW == "off" ] || sudo wg-quick up $NEW
