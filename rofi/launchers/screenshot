@@ -1,11 +1,11 @@
 #! /bin/bash
 
-OPTS=("Full screen" "Selection")
+OPTS=("full screen" "selection")
 case "$( printf '%s\n' "${OPTS[@]}" | rofi -dmenu )" in
-    "Full screen")
+    "full screen")
         scrot -e 'mv $f ~/Documents/screenshots/'
         ;;
-    "Full screen")
+    "selection")
         scrot -s -e 'mv $f ~/Documents/screenshots/'
         ;;
 esac
