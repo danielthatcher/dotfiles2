@@ -3,9 +3,9 @@
 OPTS=("full screen" "selection")
 case "$( printf '%s\n' "${OPTS[@]}" | rofi -dmenu )" in
     "full screen")
-        scrot -e 'mv $f ~/Documents/screenshots/'
+        scrot -e 'xclip -selection clipboard -t image/png $f; mv $f ~/Documents/screenshots/'
         ;;
     "selection")
-        scrot -s -e 'mv $f ~/Documents/screenshots/'
+        scrot -s -e 'xclip -selection clipboard -t image/png $f; mv $f ~/Documents/screenshots/'
         ;;
 esac
