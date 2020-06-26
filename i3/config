@@ -173,6 +173,7 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 #Scratchpad
 bindsym $mod+Shift+i move scratchpad
 bindsym $mod+i scratchpad show
+bindsym $mod+x floating disable
 
 #Shortcuts
 bindsym $mod+Return exec ~/.i3/launch.sh terminal
