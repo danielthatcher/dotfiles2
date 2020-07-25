@@ -1,3 +1,6 @@
 {
-    "coc.preferences.diagnostic.virtualText": true
+    "coc.preferences.diagnostic.virtualText": true,
+    "go":  {
+        "disable": {}
+    }
 }
