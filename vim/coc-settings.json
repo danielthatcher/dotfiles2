@@ -1,5 +1,6 @@
 {
-    "coc.preferences.diagnostic.virtualText": true,
+    "diagnostic.virtualText": true,
+    "diagnostic.virtualTextCurrentLineOnly": false,
     "go":  {
         "disable": {}
     }
