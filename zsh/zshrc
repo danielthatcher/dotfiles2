@@ -88,6 +88,7 @@ alias e='vim'
 alias ef='vim -c :Files'
 alias t='tmux'
 alias snapshot='sudo btrfs subvolume snapshot / /btrfs/backups/$(date +%F-%H)'
+alias clip='xclip -selection clipboard'
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
