@@ -6,11 +6,16 @@ if [ $# = 0 ]; then
 else
     opt="$1"
 fi
+
+outdir="~/Documents/screenshots/"
+if [ $# = 2 ]; then
+    outdir="$2"
+fi
 case "$opt" in
     "full screen")
-        scrot -e 'xclip -selection clipboard -t image/png $f; mv $f ~/Documents/screenshots/'
+        scrot -e 'xclip -selection clipboard -t image/png $f; mv $f '"$outdir"
         ;;
     "selection")
-        scrot -s -e 'xclip -selection clipboard -t image/png $f; mv $f ~/Documents/screenshots/'
+        scrot -s -e 'xclip -selection clipboard -t image/png $f; mv $f '"$outdir"
         ;;
 esac
