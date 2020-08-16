@@ -1,7 +1,12 @@
 #! /bin/bash
 
 OPTS=("full screen" "selection")
-case "$( printf '%s\n' "${OPTS[@]}" | rofi -dmenu )" in
+if [ $# = 0 ]; then
+    opt="$( printf '%s\n' "${OPTS[@]}" | rofi -dmenu )"
+else
+    opt="$1"
+fi
+case "$opt" in
     "full screen")
         scrot -e 'xclip -selection clipboard -t image/png $f; mv $f ~/Documents/screenshots/'
         ;;
