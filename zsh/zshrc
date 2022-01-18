@@ -53,7 +53,11 @@ export PATH="$PATH:/sbin"
 export PATH="$PATH::/opt"
 
 # go path
-export GOPATH="$HOME/Sources/go"
+if [ -d "$HOME/src" ]; then
+    export GOPATH="$HOME/src/go"
+else
+    export GOPATH="$HOME/Sources/go"
+fi
 export PATH="$PATH:$GOPATH/bin"
 if [ ! -d $GOPATH ]; then
     mkdir -p $GOPATH
@@ -83,7 +87,6 @@ alias djupytertf='docker run --rm -v $PWD:/home/jovyan/work --name jupyter -i -p
 
 # misc
 alias lsa='ls -A'
-test "${PS1+set}" && CDPATH=".:$HOME/Sources/go/src/github.com/danielthatcher:$HOME/Projects"
 alias e='vim'
 alias ef='vim -c :Files'
 alias t='tmux'
