@@ -24,21 +24,6 @@ unsetopt beep notify
 autoload -U colors
 colors
 
-# VCS info in prompt
-setopt PROMPT_SUBST
-autoload -Uz vcs_info
-zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' stagedstr "%F{green}●%f"
-zstyle ':vcs_info:*' unstagedstr "%F{red}●%f"
-zstyle ':vcs_info:git*' formats "%{$fg[green]%}%c%u%{$fg[green]%}%b%{$reset_color%}"
-precmd() {
-    vcs_info
-    RPROMPT="${vcs_info_msg_0_}%{$reset_color%}"
-    PROMPT="%{$fg[red]%}%n%{$fg[white]%}:%{$fg[yellow]%}%~ %(!.#.$)%{$reset_color%} "
-}
-
-
 # Load up editor when hitting ^x^x
 autoload -U edit-command-line
 zle -N edit-command-line
@@ -92,6 +77,9 @@ alias ef='vim -c :Files'
 alias t='tmux'
 alias snapshot='sudo btrfs subvolume snapshot / /btrfs/backups/$(date +%F-%H)'
 alias clip='xclip -selection clipboard'
+
+# Theme
+source "$HOME/.config/zsh/themes/common.theme"
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

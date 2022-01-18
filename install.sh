@@ -40,6 +40,12 @@ ZSH_PLUGIN_DIR=$HOME/.config/zsh/plugins
 mkdir -p $ZSH_PLUGIN_DIR
 git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_PLUGIN_DIR/zsh-autosuggestions
 
+# zsh theme
+ZSH_THEME_DIR="$HOME/.config/zsh/themes"
+mkdir -p $ZSH_THEME_DIR
+ZSH_THEME_FILE="$ZSH_THEME_DIR/common.theme"
+curl -o "$ZSH_THEME_FILE" 'https://raw.githubusercontent.com/jackharrisonsherlock/common/master/common.zsh-theme'
+
 # clips
 mkdir -p ~/.config/clips
 for d in $(ls $DIR/clips); do ln -s "$DIR/clips/$d" "$HOME/.config/clips/$d"; done
