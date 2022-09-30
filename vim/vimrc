@@ -121,6 +121,8 @@ lua <<EOF
         mapping = cmp.mapping.preset.insert({
             ['<C-Space>'] = cmp.mapping.complete(),
             ['<CR>'] = cmp.mapping.confirm({ select = false }),
+            ['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 's' }),
+            ['<S-Tab>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 's' }),
         }),
         sources = cmp.config.sources({
             { name = 'nvim_lsp' },
@@ -143,7 +145,7 @@ lua <<EOF
     -- lspconfig
     local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
     require('lspconfig')['gopls'].setup { capabilities = capabilities }
-
+    require('lspconfig')['pyright'].setup { capabilities = capabilities }
 EOF
 
 
