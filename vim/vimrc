@@ -152,6 +152,7 @@ lua <<EOF
     require('lspconfig')['gopls'].setup { capabilities = capabilities }
     require('lspconfig')['pyright'].setup { capabilities = capabilities }
     require('lspconfig')['terraformls'].setup{ capabilities = capabilities }
+    require('lspconfig')['eslint'].setup{ capabilities = capabilities }
 EOF
 
 
