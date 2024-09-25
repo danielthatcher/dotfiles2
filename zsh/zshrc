@@ -73,8 +73,8 @@ alias djupytertf='docker run --rm -v $PWD:/home/jovyan/work --name jupyter -i -p
 
 # misc
 alias lsa='ls -A'
-alias e='vim'
-alias ef='vim -c :Files'
+alias e='nvim'
+alias ef='nvim -c :Files'
 alias t='tmux'
 alias snapshot='sudo btrfs subvolume snapshot / /btrfs/backups/$(date +%F-%H)'
 alias clip='xclip -selection clipboard'
