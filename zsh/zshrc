@@ -13,6 +13,7 @@ zstyle :compinstall filename '/home/daniel/.zshrc'
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
+
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=1000
@@ -21,9 +22,6 @@ setopt HIST_IGNORE_SPACE
 setopt extendedglob
 unsetopt beep notify
 # End of lines configured by zsh-newuser-install
-
-autoload -U colors
-colors
 
 # Load up editor when hitting ^x^x
 autoload -U edit-command-line
@@ -52,41 +50,20 @@ fi
 # npm path
 export PATH="$PATH:$HOME/.local/npm-global/bin"
 
-# power
-alias bork='systemctl poweroff'
-
-##File associations
-function openVideo() {
-    ext=$(echo $1 | cut -f 1 -d '.')
-	vlc "$@" 2>/dev/null &
-}
-alias -s {ts,mkv,mp3,mp4,srt,avi}="openVideo"
-alias -s {jpg,jpeg,png,tiff,pdf,html}="chromium"
-alias -s {zip}="unzip"
-alias -s {jar}='java -jar'
-
-# Docker ctf container
-alias dctf-start='docker run --rm -d -v $PWD:/pwd --cap-add=SYS_PTRACE --security-opt seccomp=unconfined --name ctf -i ctf'
-alias dctf='docker exec -it ctf /bin/zsh'
-alias djupyter='docker run --rm -v $PWD:/home/jovyan/work --name jupyter -i -p 8888:8888 jupyter/scipy-notebook'
-alias djupytertf='docker run --rm -v $PWD:/home/jovyan/work --name jupyter -i -p 8888:8888 -p 6006:6006 --gpus all jupyter/tensorflow-notebook'
-
 # misc
-alias lsa='ls -A'
 alias e='nvim'
 alias ef='nvim -c :Files'
+alias vim='nvim'
 alias t='tmux'
-alias snapshot='sudo btrfs subvolume snapshot / /btrfs/backups/$(date +%F-%H)'
-alias clip='xclip -selection clipboard'
-
-# Theme
-source "$HOME/.config/zsh/themes/common.theme"
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Local
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
+# Starship for prompt
+command -v starship &>/dev/null && eval "$(starship init zsh)" || echo "starship not found in PATH — install it: https://starship.rs"
 
 # Plugins
 ZSH_PLUGIN_DIR="$HOME/.config/zsh/plugins"
